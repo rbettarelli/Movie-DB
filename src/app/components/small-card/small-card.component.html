@@ -5,15 +5,17 @@
               src="{{cardPhoto}}"
               alt=""
               srcset=""
-            />
+              [routerLink]="['/details', mediaType, Id]"/>
+         
           </div>
           <div class="small-card__title">
-            <h1><a [routerLink]="['content', Id]">{{smallCardTitle}}</a></h1>
+            <p>{{smallCardTitle}}</p>
           </div>
-
+          <div class="small-card__release">{{ releaseDate | date:'dd/MM/yyyy' }}</div>
+       
     </div>
    
-    <div class="container__small-card-separator"><hr></div>
+    
 </div>
 
 

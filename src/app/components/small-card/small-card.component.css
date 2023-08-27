@@ -1,17 +1,26 @@
 .container__small-card {
-  width: 700px;
+  width: 150px;
+  min-width: 150px;
   margin-top: 15px;
 }
 
 .container__small-card-content {
   display: flex;
- 
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.small-card__photo {
+    width: 100%;
+    min-height: calc(150px*1.5);
+    height: calc(150px*1.5);
 }
 
 .small-card__photo > img {
-  width: 200px;
-  min-width: 200px;
-  margin-right: 20px;
+  width: 100%;
+  height: 100%;
+ 
 }
 
 .small-card__title {

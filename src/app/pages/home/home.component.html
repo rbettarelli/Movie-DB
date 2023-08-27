@@ -1,27 +1,20 @@
-
-
 <app-menu-title></app-menu-title>
+
 <div class="container__articles">
-  <div class="articles__main">
-    <app-big-card 
-    Id="1"
-    photoCover="https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2023/04/23/192309854-lilo-stitch-live-action.jpg"
-    cardTitle="Lilo & Stich"
-    cardDescription="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et reiciendis doloribus quod corporis, iure id eaque numquam corrupti ullam possimus, saepe eius facere fugiat facilis cumque totam optio nam sapiente."></app-big-card>
-   
-  </div>
+  <h1>Tendências da Semana</h1>
   <div class="articles__others">
-    <app-small-card 
-    Id="1"
-    cardPhoto="https://disneyplusbrasil.com.br/wp-content/uploads/2023/05/Stitch.jpg"
-    smallCardTitle="Tatuadai Cobra"></app-small-card>
-    <app-small-card
-    Id="2"
-    cardPhoto="https://disneyplusbrasil.com.br/wp-content/uploads/2023/05/Stitch.jpg"
-    smallCardTitle="Tatuadai Cobra"></app-small-card>
-    <app-small-card 
-    Id="3"
-    cardPhoto="https://disneyplusbrasil.com.br/wp-content/uploads/2023/05/Stitch.jpg"
-    smallCardTitle="Tatuadai Cobra"></app-small-card>
+  
+    <ng-container *ngFor="let newsItem of news">
+      <app-small-card
+        [Id]="newsItem.id"
+        [cardPhoto]="getCardPhoto(newsItem.poster_path)"
+        [smallCardTitle]="newsItem.original_title ? newsItem.original_title : newsItem.name"
+        [overview]="newsItem.overview"
+        [releaseDate]="newsItem.release_date ? newsItem.release_date : newsItem.first_air_date"
+        [mediaType]="newsItem.media_type"
+        
+      >
+       </app-small-card>
+    </ng-container>
   </div>
 </div>

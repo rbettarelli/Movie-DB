@@ -22,6 +22,8 @@ export class SmallCardComponent {
   releaseDate:string =''
   @Input()
   mediaType: string =''
+  @Input()
+  vote:string =''
 
 
   constructor(private dataService : MovieDataService, private movieService : MovieService ) {}

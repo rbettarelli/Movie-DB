@@ -1,13 +1,42 @@
 <div class="container__content">
-
-    <div class="content__cover">
-        <img src="{{getImage(mediaDetails.backdrop_path)}}" alt="">
-    </div>
+  <div class="content__cover">
+    <img src="{{ getImage(mediaDetails?.poster_path) }}" alt="Poster {{mediaDetails?.title}}" />
+  </div>
+  <div class="content__info">
     <div class="content__title">
-        <h1>{{mediaDetails.title}}</h1>
+      <h1>{{ mediaDetails?.title }}</h1>
     </div>
+    <div class="content__details">
+      <p>{{ mediaDetails?.release_date | date : "dd/MM/yyyy" }}</p>
+      <p>•</p>
+      <span *ngFor="let genre of mediaDetails?.genres; let last = last">
+        {{ genre?.name }}{{ !last ? ", " : "" }}
+      </span>
+      <p>•</p>
+      <p>{{ converTime(mediaDetails?.runtime) }}</p>
+    </div>
+    <div class="content__prod">
+        <span *ngFor="let prod of mediaDetails?.production_companies
+        ">{{prod.name}} • </span>
+    </div>
+
     <div class="content__description">
-        <p>{{mediaDetails.overview}}</p>
+      <p>{{ mediaDetails?.overview }}</p>
+      
     </div>
-    <a [routerLink]="['']"><< voltar</a>
+    <div class="content__cast">
+        
+        <app-cast *ngFor="let castItem of cast "
+        [castPhoto]="getImage(castItem.profile_path)" 
+        [castName]="castItem.name" 
+        [castCharacter]="castItem.character">
+</app-cast>
+       
+        
+   
+    </div>
+
+
+    <button><a [routerLink]="['']"> Back </a></button>
+  </div>
 </div>

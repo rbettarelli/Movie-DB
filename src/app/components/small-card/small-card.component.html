@@ -1,23 +1,26 @@
-<div class="container__small-card">
-    <div class="container__small-card-content">
-        <div class="small-card__photo">
-            <img
-              src="{{cardPhoto}}"
-              alt=""
-              srcset=""
-              [routerLink]="['/details', mediaType, Id]"/>
-         
-          </div>
-          <div class="small-card__title">
-            <p>{{smallCardTitle}}</p>
-          </div>
-          <div class="small-card__release">{{ releaseDate | date:'dd/MM/yyyy' }}</div>
-       
+<div class="container__small-card" [routerLink]="['/details', mediaType, Id]">
+  <div class="container__small-card-content">
+    <div class="small-card__photo">
+      <img src="{{ cardPhoto }}" alt="{{ smallCardTitle }}" />
     </div>
-   
-    
+    <div class="small-card__title">
+      <p>{{ smallCardTitle }}</p>
+    </div>
+    <div class="small-card__release">
+      {{ releaseDate | date : "dd/MM/yyyy" }}
+    </div>
+    <div class="small-card__vote">
+      {{ vote | number : "1.1-1" }}
+      <img
+        *ngIf="+vote >= 7"
+        src="../../../assets/Rotten_Tomatoes.svg.png"
+        alt="Imagem 1"
+      />
+      <img
+        *ngIf="+vote < 7"
+        src="../../../assets/icons8-rotten-tomatoes-48.png"
+        alt="Imagem 2"
+      />
+    </div>
+  </div>
 </div>
-
-
-
- 

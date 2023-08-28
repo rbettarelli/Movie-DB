@@ -13,24 +13,46 @@ export class MovieService {
   getmoviesWeek() {
     const url = `${this.apiUrl}/trending/all/week`;
     const params = {
-
-        api_key: this.apiKey
-      
+      api_key: this.apiKey,
     };
-    
+
     return axios.get(url, { params });
   }
 
   getMediaDetails(mediaType: string, id: string) {
     const url = `${this.apiUrl}/${mediaType}/${id}`;
     const params = {
-      api_key: this.apiKey
+      api_key: this.apiKey,
     };
 
     return axios.get(url, { params });
   }
 
+  getMediaCast(media_type: string, id: string) {
+    const url = `${this.apiUrl}/${media_type}/${id}/credits`;
+    const params = {
+      api_key: this.apiKey,
+    };
 
+    return axios.get(url, { params });
+  }
 
+  getMovieDay() {
+    const url = `${this.apiUrl}/trending/movie/day`;
+    const params = {
+      api_key: this.apiKey,
+    };
 
+    return axios.get(url, { params });
+  }
+
+  getMovieByGender(gender: any) {
+    const url = `${this.apiUrl}/discover/movie`
+    const params = {
+      api_key: this.apiKey,
+      with_genres: gender
+    }
+    return axios.get(url, { params });
+  }
+  
 }

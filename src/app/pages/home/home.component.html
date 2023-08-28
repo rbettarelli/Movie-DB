@@ -1,20 +1,125 @@
 <app-menu-title></app-menu-title>
 
-<div class="container__articles">
+<div class="container__movies">
   <h1>Tendências da Semana</h1>
-  <div class="articles__others">
-  
-    <ng-container *ngFor="let newsItem of news">
+  <div class="movies__week">
+    <ng-container *ngFor="let movieItem of weekMovie">
       <app-small-card
-        [Id]="newsItem.id"
-        [cardPhoto]="getCardPhoto(newsItem.poster_path)"
-        [smallCardTitle]="newsItem.original_title ? newsItem.original_title : newsItem.name"
-        [overview]="newsItem.overview"
-        [releaseDate]="newsItem.release_date ? newsItem.release_date : newsItem.first_air_date"
-        [mediaType]="newsItem.media_type"
-        
+        [Id]="movieItem.id"
+        [cardPhoto]="getCardPhoto(movieItem.poster_path)"
+        [smallCardTitle]="
+          movieItem.original_title ? movieItem.original_title : movieItem.name
+        "
+        [overview]="movieItem.overview"
+        [releaseDate]="
+          movieItem.release_date
+            ? movieItem.release_date
+            : movieItem.first_air_date
+        "
+        [mediaType]="movieItem.media_type"
+        [vote]="movieItem.vote_average"
       >
-       </app-small-card>
+      </app-small-card>
+    </ng-container>
+  </div>
+  <h1>Movie Of Day</h1>
+  <div class="movies__day">
+    <ng-container *ngFor="let movieItem of dayMovie">
+      <app-small-card
+        [Id]="movieItem.id"
+        [cardPhoto]="getCardPhoto(movieItem.poster_path)"
+        [smallCardTitle]="
+          movieItem.original_title ? movieItem.original_title : movieItem.name
+        "
+        [overview]="movieItem.overview"
+        [releaseDate]="
+          movieItem.release_date
+            ? movieItem.release_date
+            : movieItem.first_air_date
+        "
+        [mediaType]="movieItem.media_type"
+        [vote]="movieItem.vote_average"
+      >
+      </app-small-card>
+    </ng-container>
+  </div>
+
+  <div class="movies__gender-selector">
+    <div
+      class="anchor"
+      id="28"
+      (click)="getMovieByGender(28)"
+      [ngClass]="{ 'selected': isSelected(28) }"
+    >
+      Action
+    </div>
+    <div
+      class="anchor"
+      id="12"
+      (click)="getMovieByGender(12)"
+      [ngClass]="{ 'selected': isSelected(12) }"
+    >
+      Adventure
+    </div>
+    <div
+      class="anchor"
+      id="16"
+      (click)="getMovieByGender(16)"
+      [ngClass]="{ 'selected': isSelected(16) }"
+    >
+      Animation
+    </div>
+    <div
+      class="anchor"
+      id="99"
+      (click)="getMovieByGender(99)"
+      [ngClass]="{ 'selected': isSelected(99) }"
+    >
+      Documentary
+    </div>
+    <div
+      class="anchor"
+      id="35"
+      (click)="getMovieByGender(35)"
+      [ngClass]="{ 'selected': isSelected(35) }"
+    >
+      Comedy
+    </div>
+    <div
+      class="anchor"
+      id="878"
+      (click)="getMovieByGender(878)"
+      [ngClass]="{ 'selected': isSelected(878) }"
+    >
+      Science Fiction
+    </div>
+    <div
+      class="anchor"
+      id="53"
+      (click)="getMovieByGender(53)"
+      [ngClass]="{ 'selected': isSelected(53) }"
+    >
+      Thriller
+    </div>
+  </div>
+  <div class="movies__gender">
+    <ng-container *ngFor="let movieItem of genderMovie">
+      <app-small-card
+        [Id]="movieItem.id"
+        [cardPhoto]="getCardPhoto(movieItem.poster_path)"
+        [smallCardTitle]="
+          movieItem.original_title ? movieItem.original_title : movieItem.name
+        "
+        [overview]="movieItem.overview"
+        [releaseDate]="
+          movieItem.release_date
+            ? movieItem.release_date
+            : movieItem.first_air_date
+        "
+        [mediaType]="movieItem.media_type ? movieItem.media_type : 'movie'"
+        [vote]="movieItem.vote_average"
+      >
+      </app-small-card>
     </ng-container>
   </div>
 </div>

@@ -2,6 +2,7 @@
   width: 150px;
   min-width: 150px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .container__small-card-content {
@@ -30,4 +31,9 @@
 }
 .container__small-card-separator {
 margin-top: 10px ;
+}
+
+.small-card__vote > img {
+  width: 14px;
+  height: 14px;
 }

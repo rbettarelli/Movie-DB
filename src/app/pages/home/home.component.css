@@ -1,4 +1,4 @@
-.container__articles {
+.container__movies {
     width: 100%;
     margin-top: 30px;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;  
 }
 
-.articles__others {
+.movies__week, .movies__day, .movies__gender {
     display: flex;
     width: 70%;
     gap:15px;
@@ -14,3 +14,22 @@
     overflow-y: hidden;
 }
 
+
+
+.movies__gender-selector {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;  
+    
+}
+.movies__gender-selector > .anchor {
+    cursor: pointer;
+
+}
+
+.selected {
+
+    color: black;
+    background-color: white;
+}

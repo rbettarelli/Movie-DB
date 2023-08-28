@@ -4,7 +4,6 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-
 }
 
 .content__cover > img {
@@ -16,42 +15,34 @@
 }
 
 .content__info {
+  display: flex;
+  flex-direction: column;
   margin-left: 25px;
   max-width: 850px;
-
 }
 
 .content__description {
   margin-top: 15px;
-
 }
 
 .content__details {
   display: flex;
   gap: 10px;
- 
 }
 
 .content__description > p {
- 
   margin-top: 20px;
   color: rgb(187, 178, 178);
 }
-
-
 
 .content__cast {
   display: flex;
   overflow-x: scroll;
 }
 
-button {
-  width: 100px;
-  height: 50px;
-  border-radius: 15px;
-  background-color: darkgrey;
-  
-}
-button > a {
-  background: darkgrey;
+img {
+  cursor: pointer;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
 }
